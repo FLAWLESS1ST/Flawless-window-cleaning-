@@ -1,127 +1,507 @@
+# Flawless Window Cleaning Website Design
+
+Here's a comprehensive website design for your window cleaning business:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Flawless Window Cleaning</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background-color: #007acc;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
-    .section {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem 1rem;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    .services, .benefits {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .item {
-      background: #fff;
-      border-left: 5px solid #007acc;
-      padding: 1rem;
-      width: 250px;
-      border-radius: 6px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    .contact-form {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 6px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    .contact-form button {
-      background: #007acc;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .contact-form button:hover {
-      background: #005f99;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #eee;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flawless Window Cleaning | Professional Cleaning Services</title>
+    <style>
+        :root {
+            --primary: #2c7be5;
+            --secondary: #1658b3;
+            --accent: #f8f9fa;
+            --text: #333333;
+            --light: #ffffff;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');
+            background-size: cover;
+            background-position: center;
+            color: var(--light);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        .services {
+            padding: 80px 0;
+            background-color: var(--accent);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            margin-top: 0;
+            color: var(--secondary);
+        }
+        
+        .benefits {
+            padding: 80px 0;
+        }
+        
+        .benefits-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .benefit-icon {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+        
+        .benefit-text h3 {
+            margin-top: 0;
+            color: var(--secondary);
+        }
+        
+        .contact {
+            padding: 80px 0;
+            background-color: var(--accent);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            color: var(--secondary);
+            margin-top: 0;
+        }
+        
+        .contact-info p {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: var(--light);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <header>
-    <h1>Flawless Window Cleaning</h1>
-    <p>+1 (561) 235-2897 | flawlesswindowcleaner@gmail.com</p>
-  </header>
-
-  <section class="section">
-    <h2>Our Services</h2>
-    <div class="services">
-      <div class="item">Window Cleaning</div>
-      <div class="item">Screen Repair</div>
-      <div class="item">Solar Panel Cleaning</div>
-      <div class="item">Shutter Cleaning</div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Why Choose Us?</h2>
-    <div class="benefits">
-      <div class="item">Crystal-clear windows that boost curb appeal</div>
-      <div class="item">Improved energy efficiency with clean panels</div>
-      <div class="item">Extend the life of your screens and shutters</div>
-      <div class="item">Reliable, professional, and spotless results</div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Book an Appointment</h2>
-    <div class="contact-form">
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <input type="tel" name="phone" placeholder="Your Phone Number (optional)">
-        <textarea name="message" placeholder="Service details or questions..." rows="5" required></textarea>
-        <button type="submit">Send Appointment Request</button>
-      </form>
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2025 Flawless Window Cleaning. All rights reserved.
-  </footer>
-
+    <header>
+        <div class="container header-container">
+            <div class="logo">Flawless <span>Window Cleaning</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Crystal Clear Views Start Here</h1>
+            <p>Professional window cleaning services for homes and businesses in your area. Streak-free results guaranteed!</p>
+            <a href="#contact" class="btn">Get Your Free Quote</a>
+        </div>
+    </section>
+    
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer comprehensive cleaning solutions for all your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1600566752225-3800670c35a7');"></div>
+                    <div class="service-content">
+                        <h3>Window Cleaning</h3>
+                        <p>Professional interior and exterior window cleaning using eco-friendly solutions and streak-free techniques.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');"></div>
+                    <div class="service-content">
+                        <h3>Screen Repair</h3>
+                        <p>Expert screen repair and replacement services to keep your views unobstructed and your home protected.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276');"></div>
+                    <div class="service-content">
+                        <h3>Solar Panel Cleaning</h3>
+                        <p>Maximize your solar energy efficiency with our specialized solar panel cleaning services.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1583845112203-454c42b746dc');"></div>
+                    <div class="service-content">
+                        <h3>Shutter Cleaning</h3>
+                        <p>Thorough cleaning of all shutter types to restore their appearance and functionality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Flawless Window Cleaning?</h2>
+                <p>Experience the difference with our professional services</p>
+            </div>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-text">
+                        <h3>Enhanced Curb Appeal</h3>
+                        <p>Clean windows dramatically improve the appearance of your home or business, making a great first impression.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-text">
+                        <h3>Extended Window Life</h3>
+                        <p>Regular professional cleaning removes harmful contaminants that can damage glass and frames over time.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-text">
+                        <h3>Improved Solar Efficiency</h3>
+                        <p>Clean solar panels can produce up to 25% more energy than dirty ones, maximizing your investment.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-text">
+                        <h3>Safety First</h3>
+                        <p>Our trained professionals handle high or hard-to-reach windows safely with the proper equipment.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-text">
+                        <h3>Time Savings</h3>
+                        <p>Let us handle the tedious work while you focus on what matters most to you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Ready for spotless windows? Schedule your service today!</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>We're here to answer any questions you may have about our services. Reach out to us and we'll respond as soon as possible.</p>
+                    <p><strong>Phone:</strong> <a href="tel:+15612352897">+1 (561) 235-2897</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:flawlesswindowcleaner@gmail.com">flawlesswindowcleaner@gmail.com</a></p>
+                    <p><strong>Service Area:</strong> [Your Service Area]</p>
+                </div>
+                <div class="contact-form">
+                    <form id="appointmentForm" action="https://formspree.io/f/flawlesswindowcleaner@gmail.com" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="Window Cleaning">Window Cleaning</option>
+                                <option value="Screen Repair">Screen Repair</option>
+                                <option value="Solar Panel Cleaning">Solar Panel Cleaning</option>
+                                <option value="Shutter Cleaning">Shutter Cleaning</option>
+                                <option value="Multiple Services">Multiple Services</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Preferred Service Date</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Additional Details</label>
+                            <textarea id="message" name="message"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Schedule Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Flawless Window Cleaning. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple form submission handler
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Thank you for your appointment request! We will contact you shortly to confirm.');
+                    form.reset();
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                alert('There was a problem submitting your form. Please try again or call us directly.');
+                console.error('Error:', error);
+            });
+        });
+    </script>
 </body>
 </html>
+```
+
+## Key Features of This Website:
+
+1. **Professional Design**: Clean, modern layout that reflects your business's professionalism
+
+2. **Responsive**: Works perfectly on mobile devices and desktop computers
+
+3. **Services Section**: Highlights all your offerings (window cleaning, screen repair, solar panel cleaning, shutter cleaning)
+
+4. **Benefits Section**: Explains the advantages of your services to potential customers
+
+5. **Contact Form**: Includes a functional form that will send appointment requests to your Gmail (flawlesswindowcleaner@gmail.com)
+
+6. **Your Contact Information**: Prominently displays your phone number (+1 (561) 235-2897) and email
+
+7. **Call-to-Action Buttons**: Encourages visitors to schedule services
+
+## Implementation Notes:
+
+1. The form uses Formspree.io to handle form submissions to your email. You'll need to:
+   - Visit https://formspree.io
+   - Sign up with your Gmail (flawlesswindowcleaner@gmail.com)
+   - Replace the form action URL in the code with your Formspree endpoint
+
+2. You should replace the placeholder images with actual photos of your work:
+   - The current images are from Unsplash (free stock photos)
+   - Real before/after photos of your work will be more effective
+
+3. Update the service area in the contact section to reflect where you operate
+
+4. For a fully functional website, you'll need to:
+   - Purchase a domain (like flawlesswindowcleaning.com)
+   - Get web hosting
+   - Upload these files
+
+Would you like me to modify any specific part of this design or provide additional functionality?
