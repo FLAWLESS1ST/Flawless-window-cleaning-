@@ -1,4 +1,4 @@
-html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,27 +7,29 @@ html
     <title>Flawless Window Cleaning | Broward & Palm Beach County</title>
     <style>
         :root {
-            --primary: #2c7be5;
-            --secondary: #1658b3;
-            --accent: #f8f9fa;
-            --text: #333333;
-            --light: #ffffff;
+            --black: #000000;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
         }
         
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: var(--text);
+            color: var(--dark-gray);
             margin: 0;
             padding: 0;
+            background-color: var(--white);
         }
         
         header {
-            background-color: var(--light);
+            background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid var(--light-gray);
         }
         
         .container {
@@ -41,17 +43,36 @@ html
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
         }
         
-        .logo {
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .diamond-logo {
+            width: 40px;
+            height: 40px;
+            background-color: var(--black);
+            transform: rotate(45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .diamond-inner {
+            transform: rotate(-45deg);
+            color: var(--white);
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .logo-text {
             font-size: 24px;
             font-weight: bold;
-            color: var(--primary);
-        }
-        
-        .logo span {
-            color: var(--secondary);
+            color: var(--black);
         }
         
         nav ul {
@@ -59,89 +80,105 @@ html
             list-style: none;
             margin: 0;
             padding: 0;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
+            gap: 25px;
         }
         
         nav ul li a {
             text-decoration: none;
-            color: var(--text);
+            color: var(--dark-gray);
             font-weight: 500;
             transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
         
         nav ul li a:hover {
-            color: var(--primary);
+            color: var(--black);
         }
         
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');
             background-size: cover;
             background-position: center;
-            color: var(--light);
-            padding: 100px 0;
+            color: var(--white);
+            padding: 120px 0;
             text-align: center;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--white);
         }
         
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
         }
         
         .hero p {
             font-size: 20px;
             max-width: 700px;
             margin: 0 auto 30px;
+            color: var(--light-gray);
         }
         
         .btn {
             display: inline-block;
-            background-color: var(--primary);
-            color: var(--light);
-            padding: 12px 30px;
-            border-radius: 5px;
+            background-color: var(--black);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 0;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s;
-            border: none;
-            cursor: pointer;
+            border: 2px solid var(--black);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
         }
         
         .btn:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .services {
-            padding: 80px 0;
-            background-color: var(--accent);
+            background-color: transparent;
+            color: var(--black);
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         
         .section-title h2 {
             font-size: 36px;
-            color: var(--secondary);
+            color: var(--black);
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
         }
         
-        .section-title h2:after {
+        .section-title h2::after {
             content: '';
             position: absolute;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary);
-            bottom: -10px;
+            width: 60px;
+            height: 2px;
+            background-color: var(--black);
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light-gray);
         }
         
         .services-grid {
@@ -151,37 +188,44 @@ html
         }
         
         .service-card {
-            background-color: var(--light);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: var(--white);
             transition: all 0.3s;
+            border: 1px solid var(--light-gray);
         }
         
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         .service-img {
             height: 200px;
             background-size: cover;
             background-position: center;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+        
+        .service-card:hover .service-img {
+            filter: grayscale(0%);
         }
         
         .service-content {
             padding: 25px;
+            text-align: center;
         }
         
         .service-content h3 {
             margin-top: 0;
-            color: var(--secondary);
+            color: var(--black);
+            font-size: 22px;
+            margin-bottom: 15px;
         }
         
-        /* Image Slider */
+        /* Gallery Slider */
         .slider-section {
             padding: 80px 0;
-            background-color: var(--light);
+            background-color: var(--white);
         }
         
         .slider-container {
@@ -189,8 +233,6 @@ html
             margin: 0 auto;
             position: relative;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
         .slider {
@@ -209,6 +251,12 @@ html
             width: 100%;
             height: 100%;
             object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.5s;
+        }
+        
+        .slide:hover img {
+            filter: grayscale(0%);
         }
         
         .slide-caption {
@@ -220,34 +268,13 @@ html
             color: white;
             padding: 15px;
             text-align: center;
+            font-size: 18px;
         }
         
-        .slider-nav {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            z-index: 10;
-        }
-        
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .slider-dot.active {
-            background: var(--light);
-        }
-        
+        /* Benefits Section */
         .benefits {
             padding: 80px 0;
-            background-color: var(--accent);
+            background-color: var(--light-gray);
         }
         
         .benefits-list {
@@ -259,41 +286,36 @@ html
             display: flex;
             align-items: flex-start;
             margin-bottom: 30px;
-            background: var(--light);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            background: var(--white);
+            padding: 25px;
+            border-left: 4px solid var(--black);
         }
         
         .benefit-icon {
             font-size: 24px;
-            color: var(--primary);
+            color: var(--black);
             margin-right: 20px;
-            margin-top: 5px;
             min-width: 30px;
         }
         
         .benefit-text h3 {
             margin-top: 0;
-            color: var(--secondary);
+            color: var(--black);
+            font-size: 20px;
         }
         
+        /* Coverage Area */
         .coverage-area {
-            background-color: var(--secondary);
-            color: var(--light);
-            padding: 50px 0;
+            padding: 60px 0;
+            background-color: var(--black);
+            color: var(--white);
             text-align: center;
         }
         
         .coverage-area h3 {
             margin-top: 0;
             font-size: 28px;
-        }
-        
-        .coverage-area p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto;
+            margin-bottom: 20px;
         }
         
         .cities {
@@ -305,13 +327,16 @@ html
         }
         
         .city {
-            background: rgba(255,255,255,0.2);
-            padding: 8px 15px;
-            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 20px;
+            border-radius: 0;
+            font-size: 14px;
         }
         
+        /* Contact Section */
         .contact {
             padding: 80px 0;
+            background-color: var(--white);
         }
         
         .contact-container {
@@ -321,34 +346,29 @@ html
         }
         
         .contact-info h3 {
-            color: var(--secondary);
+            color: var(--black);
             margin-top: 0;
             font-size: 24px;
-        }
-        
-        .contact-info p {
             margin-bottom: 20px;
         }
         
         .contact-method {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .contact-icon {
             margin-right: 15px;
-            color: var(--primary);
+            color: var(--black);
             font-size: 20px;
             width: 20px;
             text-align: center;
         }
         
         .contact-form {
-            background-color: var(--light);
+            background-color: var(--light-gray);
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .form-group {
@@ -359,6 +379,7 @@ html
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
+            color: var(--black);
         }
         
         .form-group input,
@@ -366,18 +387,10 @@ html
         .form-group select {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            border: 1px solid var(--medium-gray);
+            background-color: var(--white);
             font-family: inherit;
             box-sizing: border-box;
-            transition: border 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: var(--primary);
-            outline: none;
         }
         
         .form-group textarea {
@@ -385,10 +398,11 @@ html
             resize: vertical;
         }
         
+        /* Footer */
         footer {
-            background-color: var(--secondary);
-            color: var(--light);
-            padding: 30px 0;
+            background-color: var(--black);
+            color: var(--white);
+            padding: 40px 0;
             text-align: center;
         }
         
@@ -398,34 +412,51 @@ html
             align-items: center;
         }
         
-        .social-links {
+        .footer-logo {
             display: flex;
+            align-items: center;
             gap: 15px;
-            margin: 20px 0;
+            margin-bottom: 20px;
         }
         
-        .social-link {
-            color: var(--light);
-            font-size: 20px;
-            transition: color 0.3s;
+        .footer-diamond {
+            width: 30px;
+            height: 30px;
+            background-color: var(--white);
+            transform: rotate(45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .social-link:hover {
-            color: var(--primary);
+        .footer-diamond-inner {
+            transform: rotate(-45deg);
+            color: var(--black);
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .footer-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--white);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--light-gray);
         }
         
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
+                gap: 15px;
             }
             
             nav ul {
-                margin-top: 20px;
-            }
-            
-            nav ul li {
-                margin-left: 15px;
-                margin-right: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             .hero h1 {
@@ -441,12 +472,17 @@ html
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container header-container">
-            <div class="logo">Flawless <span>Window Cleaning</span></div>
+            <div class="logo-container">
+                <div class="diamond-logo">
+                    <div class="diamond-inner">FWC</div>
+                </div>
+                <div class="logo-text">FLAWLESS WINDOW CLEANING</div>
+            </div>
             <nav>
                 <ul>
                     <li><a href="#services">Services</a></li>
@@ -460,45 +496,38 @@ html
     
     <section class="hero">
         <div class="container">
-            <h1>South Florida's Premier Window Cleaning Service</h1>
-            <p>Serving Broward & Palm Beach Counties with streak-free window cleaning, screen repair, and more!</p>
-            <a href="#contact" class="btn">Get Your Free Estimate</a>
+            <h1>CRYSTAL CLEAR WINDOWS IN SOUTH FLORIDA</h1>
+            <p>Professional window cleaning services for Broward & Palm Beach County homes and businesses</p>
+            <a href="#contact" class="btn">Get Your Free Quote</a>
         </div>
     </section>
     
     <section id="services" class="services">
         <div class="container">
             <div class="section-title">
-                <h2>Our Services</h2>
-                <p>Professional cleaning solutions tailored to your needs</p>
+                <h2>OUR SERVICES</h2>
+                <p>Premium cleaning solutions for your property</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1600566752225-3800670c35a7')"></div>
                     <div class="service-content">
                         <h3>Window Cleaning</h3>
-                        <p>Interior and exterior window cleaning using eco-friendly solutions and professional techniques for crystal-clear results.</p>
+                        <p>Interior and exterior window cleaning using professional techniques for streak-free results.</p>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952')"></div>
                     <div class="service-content">
                         <h3>Screen Repair</h3>
-                        <p>Expert screen repair and replacement to keep your home bug-free while enjoying fresh Florida breezes.</p>
+                        <p>Expert screen repair and replacement services to keep your home protected.</p>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276')"></div>
                     <div class="service-content">
                         <h3>Solar Panel Cleaning</h3>
-                        <p>Maximize your solar investment with our specialized cleaning that removes dirt, pollen, and salt buildup.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1583845112203-454c42b746dc')"></div>
-                    <div class="service-content">
-                        <h3>Shutter Cleaning</h3>
-                        <p>Complete shutter cleaning service that removes dust, grime, and salt residue from all shutter types.</p>
+                        <p>Specialized cleaning to maximize your solar energy efficiency.</p>
                     </div>
                 </div>
             </div>
@@ -508,34 +537,24 @@ html
     <section id="gallery" class="slider-section">
         <div class="container">
             <div class="section-title">
-                <h2>Our Work</h2>
+                <h2>OUR WORK</h2>
                 <p>See examples of our flawless transformations</p>
             </div>
             
             <div class="slider-container">
                 <div class="slider">
                     <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea" alt="Window Cleaning Before/After">
-                        <div class="slide-caption">Window Cleaning - Before & After</div>
+                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea" alt="Window Cleaning">
+                        <div class="slide-caption">WINDOW CLEANING - BEFORE & AFTER</div>
                     </div>
                     <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Screen Repair Example">
-                        <div class="slide-caption">Screen Repair - Like New Again</div>
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Screen Repair">
+                        <div class="slide-caption">SCREEN REPAIR - LIKE NEW AGAIN</div>
                     </div>
                     <div class="slide">
                         <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276" alt="Solar Panel Cleaning">
-                        <div class="slide-caption">Solar Panel Cleaning - Maximize Efficiency</div>
+                        <div class="slide-caption">SOLAR PANEL CLEANING - MAXIMIZE EFFICIENCY</div>
                     </div>
-                    <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1583845112203-454c42b746dc" alt="Shutter Cleaning">
-                        <div class="slide-caption">Shutter Cleaning - Restore Beauty</div>
-                    </div>
-                </div>
-                <div class="slider-nav">
-                    <div class="slider-dot active"></div>
-                    <div class="slider-dot"></div>
-                    <div class="slider-dot"></div>
-                    <div class="slider-dot"></div>
                 </div>
             </div>
         </div>
@@ -544,43 +563,29 @@ html
     <section id="benefits" class="benefits">
         <div class="container">
             <div class="section-title">
-                <h2>Why Choose Us?</h2>
+                <h2>WHY CHOOSE US</h2>
                 <p>The Flawless Window Cleaning difference</p>
             </div>
             <div class="benefits-list">
                 <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-star"></i></div>
+                    <div class="benefit-icon"><i class="fas fa-gem"></i></div>
+                    <div class="benefit-text">
+                        <h3>Diamond Standard Service</h3>
+                        <p>We deliver premium quality service with attention to detail that shines through in every job.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-map-marker-alt"></i></div>
                     <div class="benefit-text">
                         <h3>Local Experts</h3>
-                        <p>We understand the unique challenges of South Florida living - from salt air to intense sun. Our methods are specially designed for Broward and Palm Beach County homes.</p>
+                        <p>We understand the unique challenges of South Florida living and tailor our services accordingly.</p>
                     </div>
                 </div>
                 <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="benefit-icon"><i class="fas fa-award"></i></div>
                     <div class="benefit-text">
                         <h3>Quality Guaranteed</h3>
-                        <p>We stand behind our work with a 100% satisfaction guarantee. If you're not happy, we'll make it right.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
-                    <div class="benefit-text">
-                        <h3>Efficiency Matters</h3>
-                        <p>Clean solar panels can produce up to 25% more energy. Our cleaning helps maximize your solar investment.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
-                    <div class="benefit-text">
-                        <h3>Safe & Insured</h3>
-                        <p>Our team is fully insured and uses professional equipment to safely clean hard-to-reach windows.</p>
-                    </div>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-clock"></i></div>
-                    <div class="benefit-text">
-                        <h3>Save Time</h3>
-                        <p>Let our professionals handle the hard work while you enjoy your free time and beautiful views.</p>
+                        <p>We stand behind our work with a 100% satisfaction guarantee.</p>
                     </div>
                 </div>
             </div>
@@ -589,7 +594,7 @@ html
     
     <section class="coverage-area">
         <div class="container">
-            <h3>Serving All of Broward & Palm Beach Counties</h3>
+            <h3>SERVING BROWARD & PALM BEACH COUNTIES</h3>
             <p>We proudly serve these areas and more:</p>
             <div class="cities">
                 <div class="city">Fort Lauderdale</div>
@@ -598,8 +603,6 @@ html
                 <div class="city">Pompano Beach</div>
                 <div class="city">Delray Beach</div>
                 <div class="city">Deerfield Beach</div>
-                <div class="city">Boynton Beach</div>
-                <div class="city">And more!</div>
             </div>
         </div>
     </section>
@@ -607,27 +610,27 @@ html
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Contact Us</h2>
+                <h2>CONTACT US</h2>
                 <p>Get your free estimate today</p>
             </div>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Ready for Flawless Windows?</h3>
-                    <p>Contact us to schedule service or ask any questions about our window cleaning and repair services.</p>
+                    <h3>READY FOR FLAWLESS WINDOWS?</h3>
+                    <p>Contact us to schedule service or ask any questions about our services.</p>
                     
                     <div class="contact-method">
                         <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div><a href="tel:+15612352897" style="color: var(--text); text-decoration: none;">+1 (561) 235-2897</a></div>
+                        <div><a href="tel:+15612352897" style="color: var(--black); text-decoration: none;">+1 (561) 235-2897</a></div>
                     </div>
                     
                     <div class="contact-method">
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div><a href="mailto:flawlesswindowcleaner@gmail.com" style="color: var(--text); text-decoration: none;">flawlesswindowcleaner@gmail.com</a></div>
+                        <div><a href="mailto:flawlesswindowcleaner@gmail.com" style="color: var(--black); text-decoration: none;">flawlesswindowcleaner@gmail.com</a></div>
                     </div>
                     
                     <div class="contact-method">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div>Serving Broward & Palm Beach Counties, FL</div>
+                        <div class="contact-icon"><i class="fas fa-map-pin"></i></div>
+                        <div>Serving Broward & Palm Beach Counties</div>
                     </div>
                 </div>
                 <div class="contact-form">
@@ -652,20 +655,11 @@ html
                                 <option value="Screen Repair">Screen Repair</option>
                                 <option value="Solar Panel Cleaning">Solar Panel Cleaning</option>
                                 <option value="Shutter Cleaning">Shutter Cleaning</option>
-                                <option value="Multiple Services">Multiple Services</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="address">Property Address</label>
-                            <input type="text" id="address" name="address" placeholder="Help us serve you better">
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Preferred Service Date</label>
-                            <input type="date" id="date" name="date">
-                        </div>
-                        <div class="form-group">
                             <label for="message">Additional Details</label>
-                            <textarea id="message" name="message" placeholder="Special requests or notes about your property"></textarea>
+                            <textarea id="message" name="message"></textarea>
                         </div>
                         <button type="submit" class="btn">Request Free Estimate</button>
                     </form>
@@ -676,14 +670,15 @@ html
     
     <footer>
         <div class="container footer-content">
-            <div class="logo" style="color: white; margin-bottom: 15px;">Flawless <span style="color: #a0c4ff;">Window Cleaning</span></div>
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <div class="footer-logo">
+                <div class="footer-diamond">
+                    <div class="footer-diamond-inner">FWC</div>
+                </div>
+                <div class="footer-text">FLAWLESS WINDOW CLEANING</div>
             </div>
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> Flawless Window Cleaning. All rights reserved.</p>
-            <p>Serving Broward County and Palm Beach County, Florida</p>
+            <div class="copyright">
+                &copy; <script>document.write(new Date().getFullYear())</script> Flawless Window Cleaning. All rights reserved.
+            </div>
         </div>
     </footer>
     
@@ -691,46 +686,19 @@ html
         // Image Slider Functionality
         const slider = document.querySelector('.slider');
         const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.slider-dot');
         let currentIndex = 0;
-        let slideInterval;
-        
-        function updateSlider() {
-            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-            
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
-        }
         
         function nextSlide() {
             currentIndex = (currentIndex + 1) % slides.length;
             updateSlider();
         }
         
-        function startSlider() {
-            slideInterval = setInterval(nextSlide, 5000);
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
         
-        function stopSlider() {
-            clearInterval(slideInterval);
-        }
-        
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentIndex = index;
-                updateSlider();
-                stopSlider();
-                startSlider();
-            });
-        });
-        
-        // Start the slider
-        startSlider();
-        
-        // Pause on hover
-        slider.addEventListener('mouseenter', stopSlider);
-        slider.addEventListener('mouseleave', startSlider);
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 5000);
         
         // Form Submission
         document.getElementById('appointmentForm').addEventListener('submit', function(e) {
