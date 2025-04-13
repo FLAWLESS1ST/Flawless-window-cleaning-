@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Flawless Window Cleaning</title>
   <style>
     body {
@@ -12,63 +12,86 @@
       color: #000;
     }
     header {
-      background-color: #000;
-      color: #fff;
-      padding: 20px;
       text-align: center;
+      padding: 30px 20px;
     }
-    header h1 {
+    .logo {
+      max-width: 100px;
+      margin-bottom: 10px;
+    }
+    h1 {
       margin: 0;
-      font-size: 2em;
+      font-size: 2.2em;
+      font-weight: bold;
     }
-    .contact-info {
+    h2 {
+      text-align: center;
+      font-size: 1.5em;
+      margin: 40px 0 20px;
+    }
+    .tagline {
+      text-align: center;
+      font-size: 1.4em;
+      margin-top: 10px;
+    }
+    .contact {
+      text-align: center;
+      font-size: 0.9em;
       margin-top: 10px;
     }
     nav {
-      background-color: #222;
+      background-color: #000;
       color: #fff;
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
+      text-align: center;
+      padding: 10px;
     }
     nav a {
       color: #fff;
-      text-decoration: none;
       margin: 0 15px;
+      text-decoration: none;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .section h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .services-list, .area-list {
+    .services {
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
-      gap: 20px;
-    }
-    .services-list div, .area-list div {
-      flex: 1 1 200px;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
       text-align: center;
+    }
+    .service-item {
+      flex: 1 1 200px;
+      margin: 10px;
+    }
+    .service-item img {
+      max-width: 80px;
+      margin-bottom: 10px;
     }
     .slider {
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
+      gap: 10px;
+      max-width: 1000px;
+      margin: auto;
+      padding: 10px;
     }
     .slider img {
-      width: 100%;
-      height: auto;
       scroll-snap-align: start;
       flex: none;
-      max-width: 1000px;
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      border: 1px solid #ccc;
+    }
+    ul {
+      max-width: 600px;
+      margin: auto;
+      padding-left: 20px;
+    }
+    .area {
+      text-align: center;
+      margin: 30px auto;
     }
     footer {
       background-color: #000;
@@ -81,10 +104,11 @@
 <body>
 
   <header>
-    <h1>Flawless Window Cleaning</h1>
-    <div class="contact-info">
-      <p>Phone: +1 (561) 235-2897 | Email: flawlesswindowcleaner@gmail.com</p>
-    </div>
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Diamond_icon.svg/1024px-Diamond_icon.svg.png" alt="Diamond Logo" />
+    <h1>FLAWLESS</h1>
+    <div>WINDOW CLEANING</div>
+    <div class="tagline">Let Your Windows Shine with Flawless Clarity</div>
+    <div class="contact">Phone: +1 (561) 235-2897 | Email: flawlesswindowcleaner@gmail.com</div>
   </header>
 
   <nav>
@@ -95,54 +119,55 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <section class="section" id="services">
-    <h2>Our Services</h2>
-    <div class="services-list">
+  <h2 id="services">Services</h2>
+  <div class="services">
+    <div class="service-item">
+      <img src="https://img.icons8.com/ios/100/window-cleaning.png" alt="Window Cleaning" />
       <div>Window Cleaning</div>
+    </div>
+    <div class="service-item">
+      <img src="https://img.icons8.com/ios/100/screen.png" alt="Screen Repair" />
       <div>Screen Repair</div>
+    </div>
+    <div class="service-item">
+      <img src="https://img.icons8.com/ios/100/solar-panel.png" alt="Solar Panel Cleaning" />
       <div>Solar Panel Cleaning</div>
+    </div>
+    <div class="service-item">
+      <img src="https://img.icons8.com/ios/100/window-shutter.png" alt="Shutter Cleaning" />
       <div>Shutter Cleaning</div>
     </div>
-  </section>
+  </div>
 
-  <section class="section" id="benefits">
-    <h2>Why Choose Us?</h2>
-    <p>Flawless Window Cleaning helps make your home look amazing. Our services improve energy efficiency, extend the life of your property, and boost curb appeal.</p>
-    <ul>
-      <li>Crystal-clear windows enhance natural light and your home’s look.</li>
-      <li>Clean solar panels mean better energy performance.</li>
-      <li>Repaired screens keep bugs out and fresh air in.</li>
-      <li>Shutter cleaning keeps your exterior sharp and functional.</li>
-    </ul>
-  </section>
+  <h2 id="benefits">Benefits</h2>
+  <ul>
+    <li>Improve home appearance instantly</li>
+    <li>Increase energy efficiency (especially with clean solar panels)</li>
+    <li>Extend the life of your windows and shutters</li>
+  </ul>
 
-  <section class="section" id="gallery">
-    <h2>Gallery</h2>
-    <div class="slider">
-      <img src="https://via.placeholder.com/1000x600?text=Window+Cleaning" alt="Window Cleaning">
-      <img src="https://via.placeholder.com/1000x600?text=Screen+Repair" alt="Screen Repair">
-      <img src="https://via.placeholder.com/1000x600?text=Solar+Panel+Cleaning" alt="Solar Panel Cleaning">
-      <img src="https://via.placeholder.com/1000x600?text=Shutter+Cleaning" alt="Shutter Cleaning">
-    </div>
-  </section>
+  <h2 id="gallery">Gallery</h2>
+  <div class="slider">
+    <img src="https://via.placeholder.com/250x200?text=Windows" alt="Clean Windows" />
+    <img src="https://via.placeholder.com/250x200?text=Screens" alt="Screen Repair" />
+    <img src="https://via.placeholder.com/250x200?text=Solar+Panels" alt="Solar Panels" />
+    <img src="https://via.placeholder.com/250x200?text=Shutters" alt="Shutters" />
+  </div>
 
-  <section class="section" id="area">
+  <div class="area" id="area">
     <h2>Service Area</h2>
-    <div class="area-list">
-      <div>Broward County</div>
-      <div>Palm Beach County</div>
-    </div>
-  </section>
+    <p>Proudly Serving:</p>
+    <p><strong>Broward County</strong> and <strong>Palm Beach County</strong></p>
+  </div>
 
-  <section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <p>Have questions or want to schedule a service?</p>
+  <div class="area" id="contact">
+    <h2>Contact</h2>
     <p>Email: <a href="mailto:flawlesswindowcleaner@gmail.com">flawlesswindowcleaner@gmail.com</a></p>
-    <p>Call or Text: <a href="tel:+15612352897">+1 (561) 235-2897</a></p>
-  </section>
+    <p>Phone: <a href="tel:+15612352897">+1 (561) 235-2897</a></p>
+  </div>
 
   <footer>
-    &copy; 2025 Flawless Window Cleaning | All rights reserved.
+    &copy; 2025 Flawless Window Cleaning | All Rights Reserved
   </footer>
 
 </body>
